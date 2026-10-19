@@ -21,6 +21,9 @@ A spec, ready to hand off, for quill on macOS transcribing English, Russian and 
 - [Run Parakeet v3 on real en / ru / de and mixed sessions](issues/03-mixed-language-trial.md): one mixed en/de/ru clip transcribed well with no hint, and the user is happy. Only the instant switch from English to Russian garbled about 1–2 s. Monolingual clips, the system track and English vs v2 were not tested.
 - [Automatic detection or an explicit language switch?](issues/04-auto-detect-or-switch.md): Parakeet v3 with automatic handling is the only mode, with no hint and no switch. Fast-switch loss is an accepted limitation. Whisper is considered but not chosen.
 - [Rolling out v3: replace v2, download, doctor, old sessions](issues/05-v2-to-v3-rollout.md): v3 replaces v2 outright and `"parakeet"` now means v3. Old sessions are not re-transcribed, the v2 cache is left on disk, doctor checks the v3 cache, and the README drops the Whisper plan.
+- [Does transcript.json record a language?](issues/06-transcript-language-field.md): no. No schema change and no detection step; an optional field can be added later if something needs it.
+
+Destination reached: [Spec: Multilingual transcription (en / ru / de) on macOS via Parakeet v3](spec.md) (`ready-for-agent`).
 
 ## Not yet specified
 
