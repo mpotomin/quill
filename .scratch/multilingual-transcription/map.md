@@ -18,13 +18,14 @@ A spec, ready to hand off, for quill on macOS transcribing English, Russian and 
 
 - [Parakeet v3 via FluidAudio: languages, API, and mixed-language behaviour](issues/01-parakeet-v3-capabilities.md): ru and de are supported and the swap is one line. No language ID or hint for de vs en; mixed-language windows are a known weak spot.
 - [WhisperKit large-v3-turbo as the comparison / fallback engine](issues/02-whisperkit-comparison.md): detects language per 30 s window and can force a language; about 3× the download; speed unmeasured.
+- [Run Parakeet v3 on real en / ru / de and mixed sessions](issues/03-mixed-language-trial.md): one mixed en/de/ru clip transcribed well with no hint, and the user is happy. Only the instant switch from English to Russian garbled about 1–2 s. Monolingual clips, the system track and English vs v2 were not tested.
 
 ## Not yet specified
 
 - **The language switch design (if auto-detect falls short):** where it lives (config, menu bar, CLI flag, per-session or per-track), and its default.
 - **Transcript format:** whether `transcript.json` records a language, per segment or per track.
 - **Model rollout:** moving from v2 to v3 (or adding Whisper): download size, what `quill doctor` checks, whether v2 stays as the English engine, re-transcribing old sessions.
-- **English quality:** whether v3 (or Whisper) is noticeably worse than v2 on English-only meetings, which would argue for keeping v2 for English.
+- **English quality:** whether v3 (or Whisper) is noticeably worse than v2 on English-only meetings, which would argue for keeping v2 for English. Still untested after the trial, and the user was happy with v3's English in the mixed clip, so this may not need its own ticket.
 
 ## Out of scope
 
