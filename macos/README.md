@@ -90,10 +90,12 @@ the tail or an unrecovered stall).
 
 ## Transcription
 
-Built in, on-device, automatic. The default engine is **Parakeet TDT 0.6B v2**
-(English) via [FluidAudio](https://github.com/FluidInference/FluidAudio)'s
-Core ML port — roughly 20 seconds per hour of audio on Apple Silicon. Models
-(~600 MB) download once on first transcription; `quill doctor` tells you
+Built in, on-device, automatic. The engine is **Parakeet TDT 0.6B v3**
+(multilingual) via [FluidAudio](https://github.com/FluidInference/FluidAudio)'s
+Core ML port — roughly 20 seconds per hour of audio on Apple Silicon. It
+handles English, Russian, and German with automatic language handling: there
+is no language setting, and a session can mix languages. Models (~483 MB)
+download once on first transcription; `quill doctor` tells you
 whether they're already cached so you're never downloading after an important
 meeting.
 
@@ -104,8 +106,8 @@ on next launch (the filesystem is the queue: a session with `meta.json` but no
 `transcript.json` is pending). Failures append to the session's
 `transcribe.log` and never block later jobs.
 
-The engine sits behind a small protocol; a Whisper engine (WhisperKit
-large-v3-turbo) is planned as the fallback / re-transcription option.
+Known limitation: when a speaker switches language instantly, mid-flow, about
+1–2 seconds around the switch can come out garbled.
 
 ## Config
 
@@ -160,7 +162,7 @@ quill install --uninstall
   per-process picker if it bothers you).
 - If recordings come out silent, check System Settings → Privacy & Security →
   Screen & System Audio Recording.
-- Parakeet v2 is English-only. Other languages will come with the Whisper
-  engine.
+- Language switches are handled automatically, but an instant switch can
+  garble about 1–2 s of speech around it.
 - The binary embeds its Info.plist (`__TEXT,__info_plist`) so TCC can
   attribute permissions to quill itself when running as a LaunchAgent.

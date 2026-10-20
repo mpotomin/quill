@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Switched macOS transcription to Parakeet TDT 0.6B v3: English, Russian, and
+  German with automatic language handling, no configuration. An instant
+  language switch can garble about 1–2 s around it.
+- The v3 model (~483 MB) downloads on the first transcription after upgrading.
+  Run `quill doctor` beforehand to check whether it is cached.
+- The old v2 model cache (~600 MB) at
+  `~/Library/Application Support/FluidAudio/Models/parakeet-tdt-0.6b-v2-coreml`
+  is no longer used and is safe to delete.
+- Existing transcripts are untouched and are not re-transcribed.
+
 ## 0.1.3 - 2026-08-04
 
 - Fixed macOS route changes silently truncating capture: both tracks now have
