@@ -71,7 +71,8 @@ actor ParakeetEngine: TranscriptionEngine {
     /// Group word timings into readable segments: break on sentence-ending
     /// punctuation (parakeet v2 emits punctuation), a silence gap, or a hard
     /// length cap so a run-on speaker still wraps.
-    private static func segments(from words: [WordTiming]) -> [TranscriptSegment] {
+    /// Internal (not private) so unit tests can exercise it.
+    static func segments(from words: [WordTiming]) -> [TranscriptSegment] {
         var out: [TranscriptSegment] = []
         var current: [WordTiming] = []
 
