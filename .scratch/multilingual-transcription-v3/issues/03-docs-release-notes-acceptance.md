@@ -4,7 +4,7 @@
 
 **Blocked by:** 02: Swap the engine to Parakeet v3, with doctor following
 
-**Status:** ready-for-agent
+**Status:** needs-human (docs done in 03b88ec; manual acceptance pending)
 
 - [ ] The README model section describes Parakeet v3, the ~483 MB one-time download, en/ru/de with automatic language handling, and the known limitation that an instant language switch can garble about 1–2 s.
 - [ ] The README no longer says a WhisperKit engine is planned as the fallback.

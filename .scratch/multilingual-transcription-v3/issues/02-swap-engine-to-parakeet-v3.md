@@ -4,7 +4,7 @@
 
 **Blocked by:** 01: Unit-test segmentation for multilingual words
 
-**Status:** ready-for-agent
+**Status:** done
 
 - [ ] The FluidAudio dependency minimum is ≥ 0.15.6, the first release with v3. The trial ran 0.17.7.
 - [ ] The Parakeet engine loads FluidAudio's v3 ASR models. Its `model` is `parakeet-tdt-0.6b-v3-coreml`, and its `name` stays `parakeet`.

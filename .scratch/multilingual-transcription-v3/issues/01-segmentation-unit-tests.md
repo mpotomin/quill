@@ -4,7 +4,7 @@
 
 **Blocked by:** None (can start immediately)
 
-**Status:** ready-for-agent
+**Status:** done
 
 - [ ] The segmentation function is reachable from the test target. Its behaviour is unchanged: it breaks on `.`, `?` or `!`, on a gap over 1 s, or at 60 words.
 - [ ] Test: Cyrillic words join into the expected segment text, start and end.
