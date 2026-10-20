@@ -6,7 +6,8 @@ let package = Package(
     platforms: [.macOS(.v15)],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.3.0"),
-        .package(url: "https://github.com/FluidInference/FluidAudio.git", from: "0.15.6"),
+        // 0.17.7 is the version Parakeet v3 support was built and tested against.
+        .package(url: "https://github.com/FluidInference/FluidAudio.git", from: "0.17.7"),
     ],
     targets: [
         .executableTarget(

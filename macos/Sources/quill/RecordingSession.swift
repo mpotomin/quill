@@ -2,7 +2,7 @@ import Foundation
 
 /// One meeting recording: a timestamped folder holding two independent tracks
 /// (mic = you, system = them) plus a meta.json written on clean stop. Tracks
-/// are separate on purpose — whisper does better on clean single-source audio,
+/// are separate on purpose — transcription does better on clean single-source audio,
 /// and two tracks give free two-party diarization.
 ///
 /// The session owns lifecycle policy (rca-006): each track has a health state
