@@ -2,8 +2,9 @@ import AVFoundation
 import FluidAudio
 import Foundation
 
-/// Parakeet TDT 0.6B v2 (English) via FluidAudio's Core ML port. Models
-/// download once into FluidAudio's managed cache (~600 MB); after that,
+/// Parakeet TDT 0.6B v3 (multilingual: English, Russian, German and mixes,
+/// handled automatically with no language hint) via FluidAudio's Core ML
+/// port. Models download once into FluidAudio's managed cache (~483 MB); after that,
 /// transcription runs entirely on-device at roughly 20 seconds per hour of
 /// audio on Apple Silicon.
 actor ParakeetEngine: TranscriptionEngine {
@@ -22,13 +23,13 @@ actor ParakeetEngine: TranscriptionEngine {
     }
 
     nonisolated let name = "parakeet"
-    nonisolated let model = "parakeet-tdt-0.6b-v2-coreml"
+    nonisolated let model = "parakeet-tdt-0.6b-v3-coreml"
 
     private var manager: AsrManager?
 
     func prepare() async throws {
         guard manager == nil else { return }
-        let models = try await AsrModels.downloadAndLoad(version: .v2)
+        let models = try await AsrModels.downloadAndLoad(version: .v3)
         let manager = AsrManager()
         try await manager.loadModels(models)
         self.manager = manager
@@ -69,7 +70,7 @@ actor ParakeetEngine: TranscriptionEngine {
     }
 
     /// Group word timings into readable segments: break on sentence-ending
-    /// punctuation (parakeet v2 emits punctuation), a silence gap, or a hard
+    /// punctuation (parakeet v3 emits punctuation), a silence gap, or a hard
     /// length cap so a run-on speaker still wraps.
     /// Internal (not private) so unit tests can exercise it.
     static func segments(from words: [WordTiming]) -> [TranscriptSegment] {
